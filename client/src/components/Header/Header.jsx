@@ -11,7 +11,7 @@ function Header() {
         <div className="header-right">
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
-          <Link to="/about">About</Link>
+          <Link to="/me">me</Link>
           <Link to="/admin">Admin</Link>
         </div>
       </div>

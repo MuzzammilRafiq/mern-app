@@ -2,20 +2,22 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 import postRoute from "./src/routes/postRoute.js";
 import authRoute from "./src/routes/authRoute.js";
 import userRoute from "./src/routes/userRoute.js";
 
 const app = express();
+dotenv.config();
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 ); // if you want to send cookie etc.
-dotenv.config();
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/post", postRoute);
 app.use("/auth", authRoute);

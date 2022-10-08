@@ -4,7 +4,10 @@ const PostSchema = new Schema(
   {
     userId: {
       type: String,
-      //   required: true,
+      default: "",
+    },
+    imgsrc: {
+      type: String,
       default: "",
     },
     text: {
