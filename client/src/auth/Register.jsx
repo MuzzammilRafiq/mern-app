@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
@@ -8,7 +7,6 @@ function Login() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [imgsrc, setImgsrc] = useState("");
-  const navigate = useNavigate();
 
   const login = async (e) => {
     e.preventDefault(); //prevents from refreshing page
@@ -23,9 +21,11 @@ function Login() {
       setUsername("");
       setName("");
       setImgsrc("");
-      // navigate("/");
     } catch (err) {
-      console.log(err);
+      console.log();
+      // if (err.response.data.status === 420) {
+      alert(err.response.data.message);
+      // }
     }
   };
 
@@ -37,18 +37,21 @@ function Login() {
           placeholder="username..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
         <input
           type="password"
           placeholder="password..."
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <input
           type="text"
           placeholder="name..."
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
           type="text"

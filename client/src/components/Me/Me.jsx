@@ -22,7 +22,7 @@ function Me() {
         <h2>loading...</h2>
       ) : (
         <div className="card">
-          <img src={meData.imgsrc} alt="John" />
+          <img src={meData.imgsrc} alt="me" />
           <h3>username: {meData.username}</h3>
           <h1>name: {meData.name}</h1>
         </div>

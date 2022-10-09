@@ -10,5 +10,7 @@ const router = express.Router();
 router.post("/", createPost);
 router.get("/", getPosts);
 router.get("/me", getPostPerUser);
+// router.get("/reaction", reactionPost);
+// router.post("/rxn", createRxn);
 
 export default router;

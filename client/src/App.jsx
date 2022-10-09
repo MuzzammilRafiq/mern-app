@@ -11,6 +11,7 @@ import useFetch from "./hooks/useFetch";
 
 export const UserContext = createContext({});
 function App() {
+  let meData, meLoading, meError, meRefetch;
   const { data, loading, error, reFetch } = useFetch(
     `http://localhost:3001/user/get`,
     {
@@ -20,7 +21,7 @@ function App() {
     }
   );
   if (error) console.log(error);
-  let meData, meLoading, meError, meRefetch;
+
   return (
     <UserContext.Provider
       value={[
