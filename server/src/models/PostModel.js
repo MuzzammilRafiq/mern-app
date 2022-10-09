@@ -6,10 +6,6 @@ const PostSchema = new Schema(
       type: String,
       default: "",
     },
-    imgsrc: {
-      type: String,
-      default: "",
-    },
     text: {
       type: String,
       required: true,

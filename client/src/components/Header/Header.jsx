@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../App";
+import CreatePost from "../Home/CreatePost";
 import "./Header.css";
 
 function Header() {
+  const navigate = useNavigate();
+  const logout = async () => {
+    localStorage.removeItem("access_token");
+    navigate("/login");
+  };
+  const [meData] = useContext(UserContext);
   return (
     <>
       <div className="header">
@@ -9,10 +18,16 @@ function Header() {
           <Link to="/">Home</Link>
         </div>
         <div className="header-right">
-          <Link to="/login">Login</Link>
+          {/*flex-direction:column reverse */}
+          <Link onClick={logout}>Logout</Link>
           <Link to="/register">Register</Link>
-          <Link to="/me">me</Link>
+          <Link to="/me">
+            <img src={meData?.imgsrc} alt="me" />
+          </Link>
           <Link to="/admin">Admin</Link>
+          <Link>
+            <CreatePost />
+          </Link>
         </div>
       </div>
       <br />
